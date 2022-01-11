@@ -1,0 +1,71 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+Profiles - {{ block.super }}
+{% endblock %}
+
+
+{% load static %}
+{% block css %}
+<!-- code here. -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+
+    <div class="mt-4 p-5 bg-primary text-white rounded">
+        <h1>Search customers.</h1>
+    </div>
+
+    <form action="" method="post">{% csrf_token %}
+        <div class="mb-3 mt-3">
+            <label class="form-label">ID No: </label>
+            <input type="text" class="form-control" placeholder="ID Card" name="id-card">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Unitholder: </label>
+            <input type="text" class="form-control" placeholder="Unitholder" name="uhid">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Firstname Thai: </label>
+            <input type="text" class="form-control" placeholder="Firstname Thai" name="first-name-th">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Lastname Thai: </label>
+            <input type="text" class="form-control" placeholder="Lastname Thai" name="last-Name-thai">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+
+    <div class="mt-5">
+        {% if search_customers.unitholderIdreferenceNo %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Unitholder ID</th>
+                    <th>Name</th>
+                    <th style="text-align: center;">Customer Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{search_customers.unitholderIdreferenceNo}}</td>
+                    <td>{{search_customers.firstNameEn}} {{search_customers.lastNameEn}}</td>
+                    <td style="text-align: center;"><a class="btn btn-primary" href="{% url 'customer_profile' search_customers.unitholderIdreferenceNo %}">View</a></td>
+                </tr>
+            </tbody>
+        </table>
+        {% elif search_customers == 'No Data' %}
+        <div class="alert alert-danger">
+            {{search_customers}}
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+{% endblock %}

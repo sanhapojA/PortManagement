@@ -1,0 +1,489 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+Profiles - {{ block.super }}
+{% endblock %}
+
+
+{% load static %}
+{% block css %}
+<!-- code here. -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div id="left-sidebar">
+        <div class="d-flex flex-column">
+            <div class="layout-logo">
+                <p class="text-logo-x">X</p>
+                <div class="layout-logo-text">
+                    <div class="text-logo-port">
+                        <p class="mt-sm-3 mt-xl-3">Port</p>
+                    </div>
+                    <div class="text-logo-mge">
+                        <p class="mt-sm-3 mt-xl-3">Management</p>
+                    </div>
+                </div>
+            </div>
+            <nav id="navbar" class="nav-menu navbar">
+                <ul>
+                    <li>
+                        <a href="#customer_profiles" class="nav-link nav-text active"><i class="fas fa-id-card"></i>
+                            <span>Customer Profiles</span></a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="nav-link nav-text"><i class="fas fa-address-book"></i>
+                            <span>Portfolio</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="main">
+
+        <div>
+            <h3 class="mt-sm-3">Customer Profile</h3>
+        </div>
+
+        <div class="row mt-sm-3">
+
+            <div class="col-sm-3 col-xl-3">
+                <div class="card">
+                    <div class="card-align card-header bg-card-header text-card-header">
+                        Unitholder ID
+                    </div>
+                    <div class="card-align card-body text-content">
+                        {{customers.unitholderIdreferenceNo}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xl-3">
+                <div class="card">
+                    <div class="card-align card-header bg-card-header text-card-header">
+                        Investor Type
+                    </div>
+                    <div class="card-align card-body text-content">
+                        Individual
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xl-3">
+                <div class="card">
+                    <div class="card-align card-header bg-card-header text-card-header">
+                        Account Type
+                    </div>
+                    <div class="card-align card-body text-content">
+                        {{customers.accountType}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-xl-3">
+                <div class="card">
+                    <div class="card-align card-header bg-card-header text-card-header">
+                        Open Account Date
+                    </div>
+                    <div class="card-align card-body text-content">
+                        15/07/2021
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+
+            <div class="col-sm-6 col-xl-6">
+                <div>
+                    <h3 class="mt-4 text-sub-content">Suitability</h3>
+                </div>
+
+                <div class="row mt-sm-3">
+
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-align card-header bg-card-header text-card-header">
+                                Risk Level (Very High)
+                            </div>
+                            <div class="card-align card-body text-content">
+                                {{customers.riskProfileLevel}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-align card-header bg-card-header text-card-header">
+                                Evaluate Date
+                            </div>
+                            <div class="card-align card-body text-content">
+                                {{customers.suitabilityTestDate}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xl-6">
+                <div>
+                    <h3 class="mt-4 text-sub-content">CDD Score</h3>
+                </div>
+
+                <div class="row mt-sm-3">
+
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-align card-header bg-card-header text-card-header">
+                                CDD Score (Moderate)
+                            </div>
+                            <div class="card-align card-body text-content">
+                                2
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-xl-6">
+                        <div class="card">
+                            <div class="card-align card-header bg-card-header text-card-header">
+                                CDD Review Date
+                            </div>
+                            <div class="card-align card-body text-content">
+                                15/07/2021
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Toggleable Tabs -->
+        <ul class="nav nav-tabs mt-5 col-sm-12 col-lg-12" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-bs-toggle="tab" href="#personal">Personal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#background">Background</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" href="#account">Account</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content col-sm-12 col-lg-12">
+
+            <!-- ID/Passport -->
+            <div id="personal" class="container tab-pane fade show active"><br>
+                <p class="text-sub-content">ID/Passport</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">ID Type: <span class="p-text-content-tail">ID Card</span></p>
+                        <p class="p-text-content-head">ID No: <span
+                                class="p-text-content-tail">{{customers.idno}}</span></p>
+                        <p class="p-text-content-head">Expiry Date (A.D.): <span
+                                class="p-text-content-tail">{{customers.birthDate}}</span></p>
+                    </div>
+                </div>
+                <p class="text-sub-content mt-3">Personal Information</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">Title: <span
+                                class="p-text-content-tail">{{customers.titleEn}}</span></p>
+                        <p class="p-text-content-head">Name-Surname: <span
+                                class="p-text-content-tail">{{customers.firstNameEn}} {{customers.lastNameEn}}</span>
+                        </p>
+                        <p class="p-text-content-head">Date of Birth (A.D.): <span
+                                class="p-text-content-tail">{{customers.idexpiryDate}}</span></p>
+                        <p class="p-text-content-head">Nationality: <span
+                                class="p-text-content-tail">{{customers.nationalityRegisterCountry}}</span></p>
+                        <p class="p-text-content-head">Mobile: <span
+                                class="p-text-content-tail">{{customers.mobile}}</span></p>
+                        <p class="p-text-content-head">Marital Status: <span
+                                class="p-text-content-tail">{{customers.marriedStatus}}</span>
+                        </p>
+                        <p class="p-text-content-head">E-mail: <span
+                                class="p-text-content-tail">{{customers.email}}</span></p>
+                        <p class="p-text-content-head">Application Form: <span class="p-text-content-tail">Single
+                                Form</span></p>
+                        <p class="p-text-content-head">NDID: <span
+                                class="p-text-content-tail">{{customers.ndidflag}}</span></p>
+                    </div>
+                </div>
+                <p class="text-sub-content mt-3">Spouse Information</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        {% if customers.spouseFirstNameEn == None %}
+                        <p class="p-text-content-head">Name-Surname: <span
+                            class="p-text-content-tail">-</span>
+                        </p>
+                        {% else %}
+                        <p class="p-text-content-head">Name-Surname: <span
+                            class="p-text-content-tail">{{customers.spouseFirstNameEn}}
+                            {{customers.spouseLastNameEn}}</span>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background -->
+            <div id="background" class="container tab-pane fade"><br>
+                <p class="text-sub-content">Occupation</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.occupationDesc}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Business Type</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.businessTypeDesc}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Country's Source of income / Investment Fund</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.incomeSourceCountry}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Source of Income</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.incomeTypeCode}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Monthly Income (Baht)</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.incomeId}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Are you a politician or connected to any political person?</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.politicianFlag}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Do you accept foreign exchange rate risk?</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.fxriskFlag}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Do you accept the risk from investment in derivatives
+                    and structure note?</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.futuresRiskFlag}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Declaration of Status as a U.S. Person?</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.fatcaflag}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Account -->
+            <div id="account" class="container tab-pane fade"><br>
+                <p class="text-sub-content">Mailing Address</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">{{customers.mailingMethod}}</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Mailing Method</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">Email</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Investment Objective</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">For Investment, For Tax Benefits</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">End Beneficiary</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <p class="p-text-content-head">Account Owner</p>
+                    </div>
+                </div>
+
+                <p class="text-sub-content mt-3">Bank Account</p>
+                <div class="border-content">
+                    <div class="border-content-layout">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>AMC</th>
+                                    <th>Unitholder ID</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="btn accordion-toggle collapsed" data-bs-toggle="collapse"
+                                            href="#account-detail"></a></td>
+                                    <td>KTAM</td>
+                                    <td>66600000040</td>
+                                    <td>Omnibus</td>
+                                </tr>
+                                <tr class="accordion-toggle collapse bg-table" id="account-detail">
+                                    <td colspan="4">
+                                        <h5 class="mt-3">Unitholder Bank Account</h5>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Acc. for</th>
+                                                            <th>Bank</th>
+                                                            <th>Branch</th>
+                                                            <th>Account No.</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>SUB</td>
+                                                            <td>BBL</td>
+                                                            <td>0010 สาขาบิ๊กซี พระราม 2</td>
+                                                            <td>1095556669</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>RED</td>
+                                                            <td>KBANK</td>
+                                                            <td>0342 สาขาถนนพระรามที่ 2 (เคหะธนบุรี 3)</td>
+                                                            <td>6495556669</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a class="btn accordion-toggle collapsed" data-bs-toggle="collapse"
+                                            href="#account-detail"></a></td>
+                                    <td>XSpringAM</td>
+                                    <td>0145825</td>
+                                    <td>Segregate</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <p class="p-text-content-head">For Investment, For Tax Benefits</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main2">
+        <div class="d-flex justify-content-between mt-sm-3">
+            <div>
+                <h5>Khun {{customers.firstNameEn}} {{customers.lastNameEn}}</h5>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-light text-dark">
+                    <i class="far fa-bell"></i>
+                    <span class="badge rounded-pill bg-danger">1</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <div class="card-header head-address-a">
+                Address
+            </div>
+            <div class="card-body">
+                <div class="border-content-layout">
+                    <div>
+                        <p class="mt-2 head-address">Identification</p>
+    
+                        <p class="p-text-content-head">Address: <span class="p-text-content-tail">Address No. 78,
+                                Room No. TestRoom ,
+                                Moo No. 9, TestBuilding, Floor 19,
+                                Soi 32, Road Rama 2</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Subdistrict/Tambol: <span class="p-text-content-tail">Bangmod</span>
+                        </p>
+                        <p class="p-text-content-head text-address">District/Amphur: <span class="p-text-content-tail">Jomthong</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Province: <span class="p-text-content-tail">Bangkok</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Post Code: <span class="p-text-content-tail">10150</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Country: <span class="p-text-content-tail">Thailand</span>
+                        </p>
+                    </div>
+    
+                    <div>
+                        <p class="head-address">Current</p>
+                        <p class="p-text-content-head">Address: <span class="p-text-content-tail">Address No. 78,
+                                Room No. TestRoom ,
+                                Moo No. 9, TestBuilding, Floor 19,
+                                Soi 32, Road Rama 2</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Subdistrict/Tambol: <span class="p-text-content-tail">Bangmod</span>
+                        </p>
+                        <p class="p-text-content-head text-address">District/Amphur: <span class="p-text-content-tail">Jomthong</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Province: <span class="p-text-content-tail">Bangkok</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Post Code: <span class="p-text-content-tail">10150</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Country: <span class="p-text-content-tail">Thailand</span>
+                        </p>
+                    </div>
+    
+                    <div>
+                        <p class="head-address">Workplace</p>
+                        <p class="p-text-content-head">Address: <span class="p-text-content-tail">Address No. 78,
+                                Room No. TestRoom ,
+                                Moo No. 9, TestBuilding, Floor 19,
+                                Soi 32, Road Rama 2</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Subdistrict/Tambol: <span class="p-text-content-tail">Bangmod</span>
+                        </p>
+                        <p class="p-text-content-head text-address">District/Amphur: <span class="p-text-content-tail">Jomthong</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Province: <span class="p-text-content-tail">Bangkok</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Post Code: <span class="p-text-content-tail">10150</span>
+                        </p>
+                        <p class="p-text-content-head text-address">Country: <span class="p-text-content-tail">Thailand</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+td {
+    vertical-align: middle;
+}
+
+h3 {
+    font-weight: 600;
+}
+
+body {
+    background-color: #F8F8FF;
+}
+
+i {
+    margin-left: 1em;
+}
+
+span {
+    margin-right: 0.5em;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+.card-align {
+    text-align: center;
+}
+
+
+/* .card {
+    box-shadow: 20px 20px 70px rgba(86, 89, 146, 0.1);
+} */
+
+
+
+.bg-card-header {
+    background-color: #05192D;
+}
+
+.text-color-main {
+    color: #03EF62;
+}
+
+.text-color-main, a:hover {
+    color: #03EF62;
+}
+
+
+.text-card-header {
+    font-size: 14px;
+    font-weight: normal;
+    color: #f1f1f1;
+}
+
+/* logo */
+.layout-logo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.layout-logo-text {
+    margin-left: 2.8em;
+}
+
+.text-logo-x {
+    font-size: 60px;
+    font-weight: 900;
+    color: #03EF62;
+    position: absolute;
+}
+
+.text-logo-port {
+    position: relative;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+}
+
+.text-logo-mge {
+    position: relative;
+    margin-top: -1em;
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+}
+/* end logo */
+
+.head-address {
+    background-color: #05192D;
+    color: #03EF62;
+    font-weight: 600;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.head-address-a {
+    background-color: #05192D;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ddd;
+    text-align: center;
+}
+
+.text-address {
+    margin-top: -0.5em;
+}
+
+
+.nav-text {
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+}
+
+.nav-text:hover {
+    font-size: 1em;
+    font-weight: 400;
+    color: #03EF62;
+}
+
+
+div#main {
+    margin-left: 18em;
+    margin-right: 2em;
+    width: 65%;
+    float: left;
+}
+
+div#main2{
+    width: 18%;
+    float: left;
+}
+
+.far.fa-bell {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+
+#left-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 260px;
+    transition: all ease-in-out 0.5s;
+    transition: all 0.5s;
+    padding: 0 20px;
+    background: #05192D;
+    overflow-y: auto;
+    /* box-shadow: 20px 20px 70px rgba(86, 89, 146, 0.1); */
+}
+
+
+.text-title {
+    font-style: normal;
+    font-size: 14px;
+    color: #737373;
+}
+
+
+.text-sub-content {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    color: #05192D;
+}
+
+
+.text-content {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    color: #05192D;
+}
+
+
+.p-text-content-head {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #737373;
+}
+
+
+.p-text-content-tail {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #05192D;
+}
+
+.btn.accordion-toggle {
+    border: 1px solid #03EF62;
+    color: #03EF62;
+    font-weight: 600;
+    border-radius: 10px;
+    box-shadow: 0px 100px 80px rgba(96, 60, 231, 0.07), 0px 64.8148px 46.8519px rgba(96, 60, 231, 0.0531481), 0px 38.5185px 25.4815px rgba(96, 60, 231, 0.0425185), 0px 20px 13px rgba(96, 60, 231, 0.035), 0px 8.14815px 6.51852px rgba(96, 60, 231, 0.0274815), 0px 1.85185px 3.14815px rgba(96, 60, 231, 0.0168519);
+}
+
+.btn.accordion-toggle:after {
+    transition-delay: 1s ease;
+    content: "-";
+}
+
+.accordion-toggle.collapsed:after {
+    transition-delay: 1s ease;
+    content: "+";
+}
+
+
+.btn-plus:hover {
+    border: 1px solid #03EF62;
+    color: #03EF62;
+}
+
+.border-content {
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.1);
+    border-radius: 10px;
+}
+
+.border-content-layout {
+    padding: 1em;
+    margin-bottom: -1em;
+}
+
+.nav-tabs .nav-item .nav-link {
+    font-size: 20px;
+    font-weight: 600;
+    color: #05192D;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+}
+
+.nav-tabs .nav-item .nav-link.active {
+    font-size: 20px;
+    font-weight: 600;
+    color: #03EF62;
+    background-color: #05192D;
+}
+
+
+.navbar .nav-link.active {
+    background-color: #03EF62;
+    color: #05192D;
+    border-radius: 5px;
+}
+
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #03EF62;
+    border-radius: 10px;
+}
+/* end scrollbar */
+
+
+.tab-content {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E5E5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    box-sizing: border-box;
+}
+
+.bg-table {
+    background-color: #ddd;
+}
+
+
+@media screen and (max-width: 1366px) {
+
+    .text-title {
+        font-style: normal;
+        font-size: 8px;
+        align-items: center;
+        color: #737373;
+    }
+    
+    .text-content {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        color: #05192D;
+    }
+
+    .p-text-content-head {
+        font-size: 14px;
+    }
+
+    .p-text-content-tail {
+        font-size: 14px;
+    }
+
+    div#main {
+        margin-left: 18em;
+        margin-right: 2em;
+        width: 56%;
+        float: left;
+    }
+    
+    div#main2{
+        width: 18%;
+        float: left;
+    }
+
+    .text-card-header {
+        font-size: 10px;
+        font-weight: normal;
+        color: #f1f1f1;
+    }
+
+}
+
+
+@media screen and (max-width: 1800px ) {
+    div#main {
+        margin-left: 18em;
+        margin-right: 2em;
+        width: 60%;
+        float: left;
+    }
+    
+    div#main2{
+        width: 18%;
+        float: left;
+    }
+
+    .p-text-content-head {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        color: #737373;
+    }
+    
+    .p-text-content-tail {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
+        color: #05192D;
+    }
+    
+}
+

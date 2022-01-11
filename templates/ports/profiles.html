@@ -1,0 +1,40 @@
+{% extends 'master.html' %}
+
+
+{% block title %}
+Profiles - {{ block.super }}
+{% endblock %}
+
+
+{% load static %}
+{% block css %}
+<!-- code here. -->
+<link rel="stylesheet" href="{% static '' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <div class="row">
+        {% for i in profiles %}
+        <div class="col-sm-3">
+            <div class="card mb-3">
+                <div class="card-header bg-dark text-white text-center">
+                    <span style="color: greenyellow;">
+                        {{i.id}}
+                    </span>
+                </div>
+                <div class="card-body">
+                    <p>fullName: {{i.fullName}}</p>
+                    <p>address: {{i.address}}</p>
+                    <p>navAmount: {{i.navAmount}}</p>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'customer_profile' i.id %}" class="btn btn-danger">View</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
