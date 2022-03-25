@@ -1,6 +1,5 @@
 import requests
-
-ip = '192.168.101.150:8089'
+from api.config import ip
 
 def profile():
     url = f'http://{ip}/api/Portforlio/PortforlioList'
@@ -16,5 +15,3 @@ def search_customer(idNo='', uhid='', firstNameTh='', lastNameTh=''):
     url = f'http://{ip}/api/Customer/CustomerList?IDNo={idNo}&UnitholderIDReferenceNo={uhid}&FirstNameTh={firstNameTh}&LastNameTh={lastNameTh}'
     res = requests.get(url)
     return res.json()
-
-

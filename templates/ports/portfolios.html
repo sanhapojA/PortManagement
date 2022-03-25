@@ -9,29 +9,373 @@ Portfolio - {{ block.super }}
 {% load static %}
 {% block css %}
 <!-- code here. -->
-<link rel="stylesheet" href="{% static '' %}">
+<link rel="stylesheet" href="{% static 'css/portfolio.css' %}">
 {% endblock %}
 
 
 {% block content %}
-<div class="container mt-5 mb-5">
+<div id="main">
+    <!-- Header Dashboard -->
+    <h3 class="mt-4">My Investment</h3>
+    
+    <!-- Data Dashboard -->
     <div class="row">
-        {% for i in portfolios %}
-        <div class="col-sm-3">
-            <div class="card mb-3">
-                <div class="card-header bg-dark text-white text-center"> SECURITYCODE:
-                    <span style="color: greenyellow;">
-                        {{i.securitycode}}
-                    </span>
+        <div class="col-9">
+
+            <div class="row mt-4">
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Unitholder ID
+                        </div>
+                        <div class="card-body">
+                            0200001
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p>LOCALMARKETAMOUNT: {{i.amount}}</p>
-                    <p>Percent: {{i.percent}}</p>
-                    <p>FundType: {{i.fundType}}</p>
+        
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Risk Level (Very High)
+                        </div>
+                        <div class="card-body">
+                            4
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Fund Risk Level
+                        </div>
+                        <div class="card-body">
+                            1-7
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="row mt-4">
+        
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            Total Assets (THB)
+                        </div>
+                        <div class="card-body">
+                            9,999,999,999
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            N/A
+                        </div>
+                        <div class="card-body">
+                            N/A
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-header">
+                            N/A
+                        </div>
+                        <div class="card-body">
+                            N/A
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="col-3">
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            % Asset Allocation (MF)
+                        </div>
+                        <div class="card-body">
+                            <div class="d-chart">
+                                <canvas id="myChart" style="max-width:100%;max-height:100%;"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        {% endfor %}
     </div>
+
+    <!-- Body MF & PF -->
+    <div class="mt-5">
+        <div class="">
+            <h4>Mutual Fund</h4>
+        </div>
+        <div class="d-flex flex-row justify-content-between mt-3">
+            <div>
+                <p><span class="badge rounded-pill bg-badge-xspring">Sumary</span></p>
+            </div>
+            <div>
+                <p>Cost: <span>10,000,000,000 Bath</span></p>
+            </div>
+            <div>
+                <p>Market Value: <span>9,516,000,000 Bath</span></p>
+            </div>
+            <div>
+                <p>U.PL:<span>1,889,000 Bath</span></p>
+            </div>
+            <div>
+                <p>U.PL%: <span>35.25%</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="card shadow-sm">
+        <div class="card-body p-0">
+            <table class="table table table-hover table-responsive mb-0">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;"></th>
+                        <th style="width: 15%;" class="col-ajust-left">Fund Code</th>
+                        <th style="width: 15%;" class="col-ajust-center">Cost</th>
+                        <th style="width: 15%;" class="col-ajust-right">Market Value</th>
+                        <th style="width: 15%;" class="col-ajust-right">U.PL</th>
+                        <th style="width: 15%;" class="col-ajust-right">%U.PL</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                    <tr>
+                        <td>
+                            <div class="chart">
+                                <canvas id='lineChart1'></canvas>
+                            </div>
+                        </td>
+                        <td class="col-ajust-left"><span><i class="fa-solid fa-circle i-icon icon-color-a"></i></span>X-SEQS-RA</td>
+                        <td>2,000,000,0000</td>
+                        <td class="col-ajust-right">2,391,600,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+391,600,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+19.58%</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chart">
+                                <canvas id='lineChart2'></canvas>
+                            </div>
+                        </td>
+                        <td class="col-ajust-left"><span><i class="fa-solid fa-circle i-icon icon-color-b"></i></span>X-SEQS-IA</td>
+                        <td>5,000,000,0000</td>
+                        <td class="col-ajust-right">5,406,000,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+568,400,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+8.12%</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chart">
+                                <canvas id='lineChart3'></canvas>
+                            </div>
+                        </td>
+                        <td class="col-ajust-left"><span><i class="fa-solid fa-circle i-icon icon-color-c"></i></span>X-SEQS-ASSF</td>
+                        <td>2,000,000,0000</td>
+                        <td class="col-ajust-right">2,461,600,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+461,600,000</td>
+                        <td class="col-ajust-right" style="color: #03EF62;">+23.08%</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="chart">
+                                <canvas id='lineChart4'></canvas>
+                            </div>
+                        </td>
+                        <td class="col-ajust-left"><span><i class="fa-solid fa-circle i-icon icon-color-d"></i></span>X-EQRMF</td>
+                        <td>1,000,000,0000</td>
+                        <td class="col-ajust-right">988,200,000</td>
+                        <td class="col-ajust-right" style="color: red;">-11,800,000</td>
+                        <td class="col-ajust-right" style="color: red;">-1.18%</td>
+              
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        Chart.defaults.font.size = 8;
+        const myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['X-SEQS-IA', 'X-SEQS-ASSF', 'X-EQRMF', 'X-SEQS-RA'],
+                datasets: [{
+                    
+                    data: [
+                    19.58, 
+                    8.12, 
+                    23.08, 
+                    23.08
+                    ],
+
+                    backgroundColor: [
+                        '#03EF62',
+                        '#FDCA14',
+                        '#F955A4',
+                        '#2ED6FB'
+                    ],
+
+                    borderColor: [
+                        '#03EF62',
+                        '#FDCA14',
+                        '#F955A4',
+                        '#2ED6FB'
+                    ],
+
+                    borderWidth: 1
+
+                }],
+            },
+            
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'left',
+                        align: 'center',
+                        labels: {
+                            padding: 5,
+                            boxWidth: 5,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: 5
+                        },
+                    }
+                },
+                layout: {
+                    autoPadding: true
+                }
+            }
+        });
+        
+
+        // -- Line Chart Green -- //
+        const labels = ["2022-01-03", "2022-01-04", "2022-01-05", "2022-01-06", "2022-01-07",
+                "2022-01-08", "2022-01-09", "2022-01-10", "2022-01-11", "2022-01-12"];
+
+            const gradient = ctx.createLinearGradient(0, 0, 0, 80);
+            gradient.addColorStop(0, 'rgba(3,239,98,0.5)');
+            gradient.addColorStop(1, 'rgba(4,242,100,0.0)');
+
+            const data = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'NAV',
+                        data: [40, 60, 45, 70, 76, 65, 58, 58, 69, 75],
+                        fill: true,
+                        backgroundColor: gradient,
+                        borderColor: '#03EF62',
+                        borderWidth: 2,
+                        pointBorderWidth:0,
+                        tension: 0.4,
+                    },
+                ],
+            };
+
+            const config = {
+                type: 'line',
+
+                data: data,
+
+                options: {
+                    hitRadius: 100,
+                    hoverRadius: 5,
+
+                    responsive: true,
+                    scales: {
+                        y: {
+                            display: false,
+                        },
+                        x: {
+                            display: false,
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false,
+                        }
+                    }
+
+                },
+
+            };
+
+            const lineChart1 = new Chart(document.getElementById('lineChart1'), config);
+            const lineChart2 = new Chart(document.getElementById('lineChart2'), config);
+            const lineChart3 = new Chart(document.getElementById('lineChart3'), config);
+
+
+        // -- Line Chart Red -- //
+        const labelsRed = ["2022-01-03", "2022-01-04", "2022-01-05", "2022-01-06", "2022-01-07",
+                        "2022-01-08", "2022-01-09", "2022-01-10", "2022-01-11", "2022-01-12"];
+
+            const gradientRed = ctx.createLinearGradient(0, 0, 0, 80);
+            gradientRed.addColorStop(0, 'rgba(255,0,0,0.5)');
+            gradientRed.addColorStop(1, 'rgba(255,0,0,0.0)');
+
+            const dataLineRed = {
+                labels: labelsRed,
+                datasets: [
+                    {
+                        label: 'NAV',
+                        data: [40, 60, 45, 70, 76, 65, 58, 58, 69, 75],
+                        fill: true,
+                        backgroundColor: gradientRed,
+                        borderColor: 'Red',
+                        borderWidth: 2,
+                        pointBorderWidth:0,
+                        tension: 0.4,
+                    },
+                ],
+            };
+
+            const configLineRed = {
+                type: 'line',
+
+                data: dataLineRed,
+
+                options: {
+                    hitRadius: 100,
+                    hoverRadius: 5,
+
+                    responsive: true,
+                    scales: {
+                        y: {
+                            display: false,
+                        },
+                        x: {
+                            display: false,
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false,
+                        }
+                    }
+
+                },
+
+            };
+
+            const lineChart4 = new Chart(document.getElementById('lineChart4'), configLineRed);
+
+    </script>
+
 </div>
 {% endblock %}

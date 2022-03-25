@@ -21,11 +21,21 @@ from ports.views import (
     profiles,
     customer_profile,
     search_customers,
+    signin,
+    create_users,
+    user_permission,
+    index,
+    signout
 )
 
 urlpatterns = [
+    path('', index, name='index'),
+    path('signin/', signin, name='signin'),
+    path('signout/', signout, name='signout'),
+    path('user_permission/', user_permission, name='user_permission'),
+    path('create_user/', create_users, name='create_user'),
     path('search/', search_customers, name='search_customers'),
-    path('portfolios/<str:id>', portfolios, name='portfolios'),
+    path('portfolios/', portfolios, name='portfolios'), #<str:id>
     path('profiles/', profiles, name='profiles'),
     path('customer_profile/<str:param>', customer_profile, name='customer_profile'),
     path('admin/', admin.site.urls),

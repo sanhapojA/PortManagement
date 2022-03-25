@@ -14,10 +14,10 @@ Profiles - {{ block.super }}
 
 
 {% block content %}
-<div class="container">
+<div id="main">
 
-    <div class="mt-4 p-5 bg-primary text-white rounded">
-        <h1>Search customers.</h1>
+    <div class="mt-4 p-5 bg-xspring text-white rounded mb-5">
+        <h1>Search Customers</h1>
     </div>
 
     <form action="" method="post">{% csrf_token %}
@@ -33,18 +33,20 @@ Profiles - {{ block.super }}
             <label class="form-label">Firstname Thai: </label>
             <input type="text" class="form-control" placeholder="Firstname Thai" name="first-name-th">
         </div>
-        <div class="mb-3">
+        <div class="mb-5">
             <label class="form-label">Lastname Thai: </label>
             <input type="text" class="form-control" placeholder="Lastname Thai" name="last-Name-thai">
         </div>
         <div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-xspring">Submit</button>
         </div>
     </form>
 
     <div class="mt-5">
+        
         {% if search_customers.unitholderIdreferenceNo %}
-        <table class="table">
+        <table class="table table-centered table-borderless mb-0">
+            <hr>
             <thead>
                 <tr>
                     <th>Unitholder ID</th>
@@ -56,7 +58,8 @@ Profiles - {{ block.super }}
                 <tr>
                     <td>{{search_customers.unitholderIdreferenceNo}}</td>
                     <td>{{search_customers.firstNameEn}} {{search_customers.lastNameEn}}</td>
-                    <td style="text-align: center;"><a class="btn btn-primary" href="{% url 'customer_profile' search_customers.unitholderIdreferenceNo %}">View</a></td>
+                    <td style="text-align: center;"><a class="btn btn-xspring"
+                            href="{% url 'customer_profile' search_customers.unitholderIdreferenceNo %}">View</a></td>
                 </tr>
             </tbody>
         </table>

@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins";
 }
 
 td {
@@ -35,6 +31,17 @@ ul {
     box-sizing: border-box;
 }
 
+.btn-xspring {
+    background-color: #03EF62;
+    color: white;
+    box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.1);
+}
+
+.bg-xspring {
+    background-color: #05192D;
+    color: white;
+}
+
 .card-align {
     text-align: center;
 }
@@ -43,7 +50,6 @@ ul {
 /* .card {
     box-shadow: 20px 20px 70px rgba(86, 89, 146, 0.1);
 } */
-
 
 
 .bg-card-header {
@@ -137,7 +143,6 @@ div#main {
     margin-left: 18em;
     margin-right: 2em;
     width: 65%;
-    float: left;
 }
 
 div#main2{
@@ -266,19 +271,19 @@ div#main2{
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
     background: #03EF62;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 /* end scrollbar */
 
